@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <form name="form1" method="POST" action="/">
+	<fieldset>
+	  <legend>Find words from the letters you have</legend>     
+	  <label class="col-sm-7 col-form-label">1. Enter the letters you have</label>
+	  <input name="letters" class="form-control" type="text" value="" required/>
+	  <br>
+	  <label class="col-sm-7 col-form-label">2. (optional) Enter a partial solution</label>
+	  <input name="hint" class="form-control" type="text" value=""/> 
+	  <small id="hintHelp" class="form-text text-muted">
+		Use a period '.' to represent a letter you don't know.  For example:  ch..m
+	  </small>
+	<br>
+      <label class="col-sm-7 col-form-label">3. Choose a word length</label>
+		<select class="form-control" name="length"> 
+			<option value="3">3</option>
+			<option value="4" selected>4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+		</select>
+	<br>
+      <input type="submit" class="btn btn-primary" value="Submit" />
+	</fieldset>
+  </form>
+</div>
+<script>
+	if (document.cookie != "") {
+		cookies = document.cookie.split(";");
+		for (var i = 0; i < cookies.length; i++) {
+			cookie = cookies[i].trim().split("=");
+			if (cookie[0] == 'letters') {
+				document.form1.letters.value = cookie[1];
+			}
+		}
+	}
+</script>
+<script defer src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
