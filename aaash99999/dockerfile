@@ -1,0 +1,21 @@
+FROM golang:1.22
+
+# set destination for COPY 
+
+WORKDIR /app
+
+# download go modules
+
+COPY go.mod ./
+RUN go mod download
+
+copy the source cope
+
+COPY * ./
+
+RUN CGO_ENABLED=0 GOOS=linux go build -o /gowordhelper
+
+EXPOSE 8080
+
+# run
+CMD ["/gowordhelper"]
