@@ -9,7 +9,7 @@ WORKDIR /app
 COPY go.mod ./
 RUN go mod download
 
-copy the source cope
+#copy the source code
 
 COPY * ./
 
